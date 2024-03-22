@@ -1,0 +1,9 @@
+package com.patel.BookingService.service;
+
+import com.patel.BookingService.Iservice.IBookingService;
+import com.patel.BookingService.dto.BookinRequest;
+import com.patel.BookingService.model.Booking;
+
+public class BookingService implements IBookingService {
+
+}

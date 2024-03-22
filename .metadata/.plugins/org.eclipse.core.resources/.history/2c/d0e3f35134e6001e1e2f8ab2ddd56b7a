@@ -1,0 +1,14 @@
+package com.patel.UserManagementService.Iservice;
+
+import com.patel.APIgateway.dto.JwtAuthenticationResponse;
+import com.patel.APIgateway.dto.SignInRequest;
+import com.patel.APIgateway.dto.SingUpRquest;
+import com.patel.APIgateway.model.User;
+
+public interface AuthenticationService {
+
+	User signUp(SingUpRquest singUpRquest);
+	
+	JwtAuthenticationResponse signIn(SignInRequest signInRequest);
+	
+}

@@ -1,0 +1,52 @@
+package com.example.MovieService.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.MovieService.Iservice.MovieService;
+import com.example.MovieService.model.Movie;
+
+@Service
+public class ImpMovieService implements MovieService {
+
+	@Value("${api.url}")
+	private String url;
+	
+	private final RestTemplate restTemplate = new RestTemplate();
+	
+	@Override
+	public List<Movie> getAllMovies() {
+		try {
+			Movie[] movies = restTemplate.getForObject(url, Movie[].class);
+			
+			if(movies.length > 0) {
+				return List.of(movies);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Movie getMovieById(String id) {
+		try {
+			
+			Movie movie = restTemplate.getForObject(url.concat("/" + id), Movie.class);
+			
+			if(movie == null) {
+				return null;
+			}
+			
+			return movie;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

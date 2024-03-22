@@ -1,0 +1,5 @@
+package com.patel.BookingService.repository;
+
+public interface BookingRepository {
+
+}

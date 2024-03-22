@@ -1,0 +1,5 @@
+package com.patel.ShowtimeService.Iservice;
+
+public interface ShowtimeService {
+
+}

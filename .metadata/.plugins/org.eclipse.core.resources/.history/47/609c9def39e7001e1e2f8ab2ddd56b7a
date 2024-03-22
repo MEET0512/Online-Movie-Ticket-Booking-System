@@ -1,0 +1,7 @@
+package com.patel.BookingService.service;
+
+import com.patel.BookingService.Iservice.IBookingService;
+
+public class BookingService implements IBookingService {
+
+}

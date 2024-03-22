@@ -1,0 +1,51 @@
+package com.patel.BookingService.service;
+
+
+import java.net.URL;
+
+import org.springframework.core.io.UrlResource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Service;
+
+import com.patel.BookingService.Iservice.IEmailService;
+
+import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class EmailService implements IEmailService {
+
+	private final JavaMailSender mailSender;
+	
+	@Override
+	public void sendBookingConfirmationEmail(String userEmail, String movieName, String movieBannerUrl, String showtime) {
+		MimeMessage message = mailSender.createMimeMessage();
+		MimeMessageHelper helper = null;
+		
+		try {
+			helper = new MimeMessageHelper(message, true);
+			
+			helper.setTo(userEmail);
+			helper.setSubject("Booking Confirmation");
+			
+			String emailContent = "Dear User,\n\nYour booking for the following movie has been confirmed:\n\n" +
+                    "Movie Name: " + movieName + "\n" +
+                    "Showtime: " + showtime + "\n\n" +
+                    "Thank you for using our Ticket Booking System!";
+			
+			helper.setText(emailContent);
+			
+			
+			URL url = new URL(movieBannerUrl);
+			UrlResource banner = new UrlResource(url);
+			helper.addInline("movieBanner", banner, "image/png");
+			
+			mailSender.send(message);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

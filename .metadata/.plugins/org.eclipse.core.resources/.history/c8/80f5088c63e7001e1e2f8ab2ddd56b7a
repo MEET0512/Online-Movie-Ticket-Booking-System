@@ -1,0 +1,29 @@
+spring.application.name=API-gateway
+server.port = 8181
+
+jwt.secret = "037790dc436e93053304a683d2602d840433c4df23cffed8c3f9a54f38a346e93a10180815cf454d506fb66d4e0685e9e071b46237e9075b9985a1e3a9d84255e6f79bdffd8002825a05f80b96ef8be73935f4d80bdc4e3b186e820fc8189b0cf03bb76ad758828144eec8cf29e2060d01145cd2908f5e7fa73f9eee680b51af95cf6be594274b00bd8266138887a30456e1130631fd3e17d795ef2c2d034a8cbb489aa1b1a14a748bd6f9d65356e9a62b2b3da2b1718c128d7847bb4780ea1274ffe39e2a14a7af96a3355305a924c8b6264cad2a75cd9cf001e0a0b05c821a5f47e63e2e8d9c6cf7b1f189923827cd92aae765effddbe6c369495fe47142a1"
+
+
+#user-management-service
+spring.cloud.gateway.routes[0].id=USER-MANAGEMENT-SERVICE
+spring.cloud.gateway.routes[0].uri=lb://USER-MANAGEMENT-SERVICE
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/auth/**
+spring.cloud.gateway.routes[0].filters[0]=Authentication=AuthenticationFilter
+
+#movie-service
+spring.cloud.gateway.routes[1].id=MOVIE-SERVICE
+spring.cloud.gateway.routes[1].uri=lb://MOVIE-SERVICE
+spring.cloud.gateway.routes[1].predicates[0]=Path=/api/movies/**
+spring.cloud.gateway.routes[1].filters[0]=Authentication=AuthenticationFilter
+
+#showTime-service
+spring.cloud.gateway.routes[2].id=SHOWTIME-SERVICE
+spring.cloud.gateway.routes[2].uri=lb://SHOWTIME-SERVICE
+spring.cloud.gateway.routes[2].predicates[0]=Path=/api/showtime/**
+spring.cloud.gateway.routes[2].filters[0]=Authentication=AuthenticationFilter
+
+#booking-service
+spring.cloud.gateway.routes[3].id=BOOKING-SERVICE
+spring.cloud.gateway.routes[3].uri=lb://BOOKING-SERVICE
+spring.cloud.gateway.routes[3].predicates[0]=Path=/api/booking/**
+spring.cloud.gateway.routes[3].filters[0]=Authentication=AuthenticationFilter

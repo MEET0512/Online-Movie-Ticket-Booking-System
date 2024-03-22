@@ -1,0 +1,4 @@
+spring.application.name=API-gateway
+server.port = 8181
+
+

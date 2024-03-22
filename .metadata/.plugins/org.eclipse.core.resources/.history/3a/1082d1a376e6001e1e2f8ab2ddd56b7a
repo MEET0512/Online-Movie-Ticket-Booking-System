@@ -1,0 +1,5 @@
+package com.patel.ShowtimeService.model;
+
+public class Showtime {
+
+}

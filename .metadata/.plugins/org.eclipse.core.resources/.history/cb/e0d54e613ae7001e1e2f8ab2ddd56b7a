@@ -1,0 +1,5 @@
+package com.patel.BookingService.dto;
+
+public class UserWrapper {
+
+}

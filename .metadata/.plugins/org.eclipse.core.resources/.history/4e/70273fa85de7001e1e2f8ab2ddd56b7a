@@ -1,0 +1,19 @@
+package com.patel.APIgateway.filter;
+
+import java.util.List;
+
+import org.springframework.http.server.reactive.ServerHttpRequest;
+
+import com.google.common.base.Predicate;
+
+public class RouteValidator {
+
+	public static final List<String> openApiEndpoints = List.of(
+				"/api/auth/signup",
+				"/api/auth/login",
+				"/eureka"
+			);
+	
+	public Predicate<ServerHttpRequest> isSecured = request -> openApiEndpoints.stream()
+																	.noneMatch(uri -> request.getURI().getPath().contains(uri));
+}

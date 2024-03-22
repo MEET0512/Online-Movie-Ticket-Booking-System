@@ -1,0 +1,5 @@
+package com.patel.BookingService.Iservice;
+
+public interface IEmailService {
+
+}

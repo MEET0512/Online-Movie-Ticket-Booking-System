@@ -1,0 +1,5 @@
+package com.patel.ShowtimeService.configuration;
+
+public class SecurityConfig {
+
+}

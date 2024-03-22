@@ -1,0 +1,5 @@
+package com.patel.ShowtimeService.dto;
+
+public class BookinRequest {
+
+}

@@ -1,0 +1,11 @@
+package com.patel.ShowtimeService.Iservice;
+
+import java.util.List;
+
+import com.patel.ShowtimeService.model.Showtime;
+
+public interface ShowtimeService {
+
+	List<Showtime> getMovieShowtime(String movieId);
+
+}

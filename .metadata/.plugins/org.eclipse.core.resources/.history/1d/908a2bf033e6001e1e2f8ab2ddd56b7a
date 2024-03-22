@@ -1,0 +1,10 @@
+package com.patel.UserManagementService.model;
+
+public class Snippet {
+	public static void main(String[] args) {
+		
+		eureka.client.fetch-registry=false
+		eureka.client.register-with-eureka=false
+	}
+}
+

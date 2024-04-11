@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    body {
+        @apply font-Roboto;
+    }
+    h1{
+        @apply text-2xl;
+    }
+    h2 {
+        @apply text-xl;
+    }
+    h3 {
+        @apply text-lg;
+    }
+    a {
+        @apply text-secondary-600 hover:text-secondary-400 text-base;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply 
+           px-4 py-2 text-white transition-shadow duration-300 bg-blue-500 rounded-md shadow-sm w-fit hover:bg-blue-700 hover:shadow-blue-500 hover:shadow-lg;
+        
+            &.full-width {
+                @apply w-full;
+            }
+            &.is-primary {
+                @apply text-white bg-primary-500 hover:bg-primary-700 hover:shadow-primary-500;
+            }
+            &.is-secondary {
+                @apply text-white bg-secondary-500 hover:bg-secondary-700 hover:shadow-secondary-500;
+            }
+            &.is-info {
+                @apply text-white bg-info-500 hover:bg-info-700 hover:shadow-info-500;
+            }
+            &.is-success {
+                @apply text-white bg-success-500 hover:bg-success-700 hover:shadow-success-500;
+            }
+            &.is-danger {
+                @apply text-white bg-danger-500 hover:bg-danger-700 hover:shadow-danger-500;
+            }
+            &.has-icon {
+                @apply relative transition-all duration-300 ease-in-out;
+                & > .icon {
+                   @apply absolute hidden w-6 h-6 text-white -translate-y-1/2 fill-current top-1/2 right-3 group-hover:text-white group-hover:inline-block;
+                }
+                &:hover {
+                    @apply pr-10;
+                }
+                &:hover > .icon {
+                    @apply inline-block;
+                }
+            }
+    }
+
+    .input {
+        @apply px-3 py-2 mb-4 text-black placeholder-gray-500 rounded-lg outline-none bg-secondary-500 focus:bg-secondary-300;
+    }
+
+    .navbar{
+        @apply top-0 z-10 flex flex-wrap items-center justify-between w-full p-6 bg-gray-800 shadow;
+        & .brand {
+            @apply flex items-center flex-shrink-0 mr-6 text-white;
+
+            & .brand-title {
+                @apply ml-1 text-3xl font-semibold tracking-tight;
+            }
+        }
+
+        & .nav-links {
+            @apply block w-full lg:flex lg:flex-1 lg:items-start lg:w-auto;
+
+            & .link {
+                @apply flex justify-around w-auto mx-2 transition-all ease-linear text-secondary-500 hover:text-white;
+            }
+        }
+
+        & .nav-links .link-active {
+            @apply text-white;
+        }
+    }
+
+    .movie-banner {
+        height: 550px;
+        background-image: url('https://source.unsplash.com/random/300x200');
+        @apply  w-full bg-center bg-cover;
+
+        & .text-container {
+            @apply flex flex-col items-center justify-end w-full h-full p-10 bg-gray-900 bg-opacity-50;
+
+            & .banner-title {
+                @apply text-4xl text-secondary-500;
+            }
+            & .movie-title {
+                @apply mb-2 text-2xl font-bold text-white;
+            }
+            & .movie-description {
+                @apply text-lg text-white;
+            }
+        }
+    }
+
+    .section-container {
+        & .section {
+            @apply py-4;
+
+            & .step-container {
+                @apply flex items-center justify-between py-2 mb-2;
+                & .step-description {
+                    @apply w-1/2 px-5 text-left;
+                    & h2 {
+                        @apply mb-2 text-2xl font-bold;
+                    }
+                    & p {
+                        @apply mb-5 text-base;
+                    }
+                }
+                & .step-img {
+                    @apply w-1/2 rounded-lg shadow-md;
+                }
+            }
+            & .separator {
+                @apply h-1 bg-primary-400 mx-7;
+            }
+        }
+    }
+
+    .card-container {
+        @apply flex flex-row w-full flex-wrap justify-center px-2 py-3;
+
+        .card {
+            @apply relative border h-96 max-w-sm p-4 mx-4 my-4 overflow-hidden transition duration-300 bg-white rounded-lg shadow-lg w-80;
+
+            .card-title {
+                @apply mb-2 text-2xl font-bold;
+            }
+
+            .card-description {
+                @apply mb-4 text-gray-600;
+            }
+
+            .card-button {
+                top: 100%;
+                @apply absolute left-0 right-0 z-10 flex items-center justify-center w-full h-full px-2 pb-6 text-white transition duration-300 ease-in bg-opacity-50 bg-info-600;
+            }
+
+            &:hover .card-button {
+                top: 0;
+            }
+        }
+    }
+
+    .filter-container {
+        @apply flex justify-center items-center;
+        .filter {
+            @apply flex p-2 w-fit my-3 items-center justify-center bg-info-500 rounded-3xl shadow-md;
+            .filter-btn {
+                @apply px-4 py-2 rounded-3xl text-black transition ease-in-out duration-300;
+
+                &.active {
+                    @apply bg-secondary-500 text-white;
+                }
+            }
+        }
+    }
+
+    .searchbox-container {
+        @apply flex justify-center py-4;
+        input {
+            @apply w-1/3 border px-5 py-3 rounded-l-3xl;
+
+            &:focus {
+                @apply outline-1 outline-secondary-400;
+            }
+        }
+        button {
+            @apply flex items-center bg-primary-500 text-white py-2 px-5 rounded-r-3xl;
+            &:hover {
+                @apply bg-primary-600 shadow-primary-600 shadow;
+            }
+        }
+    }
+
+    .form-card {
+        @apply rounded-lg shadow-md m-7 p-4 border;
+
+        .form-container {
+            @apply w-full flex justify-around; 
+            .divider {
+                @apply flex flex-col justify-center items-center border-2 relative;
+                span {
+                    @apply absolute bg-white;
+                }
+            }
+
+            .form {
+                @apply w-1/2 flex flex-col py-2 px-4 m-4;
+                .form-title {
+                    @apply uppercase font-bold space-x-2 text-2xl mb-4 text-center;
+                }
+                .control-group {
+                    @apply flex flex-row;
+                }
+                .control {
+                    @apply py-3 px-1 relative;
+                    .label{
+                        @apply block text-gray-500 text-lg absolute top-6 left-3 z-0 transition-all ease-in duration-300;
+                    }
+                    .input {
+                        @apply w-full bg-transparent appearance-none focus:border-secondary-500 relative border-b-2 rounded-none z-10;
+                    }
+                    .label-transform {
+                        @apply text-secondary-500 text-base -top-2 left-2;
+                    }
+                    .icon {
+                        @apply w-fit h-fit absolute  inline-block top-6 right-3 cursor-pointer z-20;
+                    }
+                }
+            }
+        }
+    }
+}

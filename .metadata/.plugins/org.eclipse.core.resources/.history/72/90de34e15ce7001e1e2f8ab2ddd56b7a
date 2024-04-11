@@ -1,5 +1,0 @@
-package com.patel.APIgateway.filter;
-
-public class RouteValidator {
-
-}

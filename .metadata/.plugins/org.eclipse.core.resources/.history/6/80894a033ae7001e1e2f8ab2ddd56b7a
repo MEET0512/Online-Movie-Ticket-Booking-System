@@ -1,8 +1,0 @@
-package com.patel.BookingService.Iservice;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public interface IBookingService {
-
-}

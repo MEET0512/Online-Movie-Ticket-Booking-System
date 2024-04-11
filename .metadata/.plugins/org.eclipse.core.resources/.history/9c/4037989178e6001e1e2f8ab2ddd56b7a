@@ -1,9 +1,0 @@
-package com.patel.ShowtimeService.Iservice;
-
-import com.patel.ShowtimeService.model.Showtime;
-
-public interface ShowtimeService {
-
-	Showtime getMovieShowtime(String movieId);
-
-}

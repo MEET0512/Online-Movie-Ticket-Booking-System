@@ -1,7 +1,0 @@
-package com.patel.BookingService.dto;
-
-public class CustomResponse<T> {
-
-	private T entity;
-	private String message;
-}

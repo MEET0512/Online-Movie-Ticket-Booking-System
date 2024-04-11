@@ -1,0 +1,44 @@
+<div class="form-card">
+    <div class="form-container">
+  
+      <!-- Register Form -->
+      <form class="form"  (submit)="onSubmitRegister()">
+        <h2 class="form-title">Register</h2>
+        <div class="control-group">
+            <div class="w-1/2">
+                <app-input label="First Name" name="fname" [(ngModel)]="registerForm.fname"></app-input>
+            </div>
+            <div class="w-1/2">
+                <app-input label="last Name" name="lname" [(ngModel)]="registerForm.lname"></app-input>
+            </div>
+        </div>
+        <app-input label="Email" name="email" type="email" [(ngModel)]="registerForm.email"></app-input>
+        <app-input label="Password" name="pwd" type="password" [password]=true [(ngModel)]="registerForm.pwd"></app-input>
+        <app-input label="Comfirm Passowrd" name="cpwd" type="password" [password]=true [(ngModel)]="registerForm.cpwd"></app-input>
+        <app-input label="Phone Number" name="phone" [(ngModel)]="registerForm.phone"></app-input>
+        <div class="w-full">
+            <button type="submit" class="btn is-primary float-right">Register</button>
+        </div>
+      </form>
+  
+      <!-- Divider with "OR" text -->
+      <div class="divider">
+        <span class="text-gray-500 font-semibold my-2">OR</span>
+      </div>
+  
+      <!-- Login Form -->
+      <form class="form" #LoginForm="ngForm" (submit)="onSubmitLogin()">
+        <h2 class="form-title">Login</h2>
+        <app-input label="User Name" name="uname" [(ngModel)]="formData.uname"></app-input>
+        <app-input label="Password" type="password" [password]=true name="pwd" [(ngModel)]="formData.pwd"></app-input>
+        <div class="w-full items-center">
+            <p class="float-left">
+                Forget Passowrd? <a href="">Click here</a>
+            </p>
+            <button type="submit" class="btn is-primary float-right">Login</button>
+        </div>
+      </form>
+  
+    </div>
+  </div>
+  

@@ -1,5 +1,0 @@
-package com.patel.ShowtimeService.repository;
-
-public interface ShowtimeRepository {
-
-}

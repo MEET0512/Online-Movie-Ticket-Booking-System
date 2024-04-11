@@ -1,5 +1,0 @@
-package com.patel.BookingService.config;
-
-public interface MovieClient {
-
-}
